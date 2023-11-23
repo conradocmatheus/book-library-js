@@ -23,7 +23,7 @@ class Library {
 
 	borrowItem(code, user) {
 		// metodo que empresta um item da coleção
-		let item = this.collection.find((item) => item.code === code);
+		let item = this.collection.find((item) => item.code === code); // procura o item pelo codigo
 		if (item) {
 			item.borrowBook(user);
 		} else {
@@ -33,7 +33,7 @@ class Library {
 
 	returnItem(code) {
 		// metodo que devolve um item da coleção
-		let item = this.collection.find((item) => item.code === code);
+		let item = this.collection.find((item) => item.code === code); // procura o item pelo codigo
 		if (item) {
 			item.returnBook();
 		} else {
