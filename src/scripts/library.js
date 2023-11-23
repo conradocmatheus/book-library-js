@@ -35,7 +35,7 @@ class Library {
 	}
 }
 
-class User {
+class User extends Library {
 	constructor(name, academicRegister, birthDate) {
 		this.name = name;
 		this.academicRegister = academicRegister;
@@ -43,5 +43,16 @@ class User {
 	}
 	getBirthDate() {
 		return this.birthDate.toISOString().split("T")[0]; // Retorna a data no formato YYYY-MM-DD
+	}
+}
+
+class Enum extends Library {
+	constructor(suspense, romance, drama, horror, action, comedy) {
+		this.suspense = suspense;
+		this.romance = romance;
+		this.drama = drama;
+		this.horror = horror;
+		this.action = action;
+		this.comedy = comedy;
 	}
 }
