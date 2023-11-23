@@ -30,6 +30,45 @@ class libraryEntity {
 	}
 }
 
+class Library {
+	constructor(collection, users) {
+		this.collection = collection;
+		this.users = users;
+	}
+
+	addUser(user) {
+		this.users.push(user);
+	}
+
+	removeUser(user) {
+		this.users = this.users.filter((item) => item !== user);
+	}
+
+	addEntity(entity) {
+		this.collection.push(entity);
+	}
+
+	removeEntity(entity) {
+		this.collection = this.collection.filter((item) => item !== entity);
+	}
+
+	borrowEntity(entity, user) {
+		if (this.collection.includes(entity)) {
+			entity.borrowBook(user);
+		} else {
+			console.log("This entity is not in the collection");
+		}
+	}
+
+	returnEntity(entity) {
+		if (this.collection.includes(entity)) {
+			entity.returnBook();
+		} else {
+			console.log("This entity is not in the collection");
+		}
+	}
+}
+
 class Book extends libraryEntity {
 	constructor(title, author, pubDate, code) {
 		super(title, author, pubDate, code, genre);
