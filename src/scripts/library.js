@@ -42,6 +42,36 @@ class Library {
 	}
 }
 
+class LibraryEntity extends Library {
+	// cria a classe entidade da biblioteca
+	constructor(title, author, pubDate, code) {
+		// cria o construtor da classe entidade da biblioteca
+		this.title = title;
+		this.author = author;
+		this.pubDate = pubDate;
+		this.code = code;
+		this.isBorrowed = false;
+		this.userBorrower = null;
+	}
+}
+
+class Book extends LibraryEntity {
+	// cria a classe Book que herda da classe LibraryEntity
+	constructor(title, author, pubDate, code) {
+		// cria o construtor da classe Book
+		super(title, author, pubDate, code, genre); // chama o construtor da classe LibraryEntity
+		this.genre = genre;
+	}
+}
+
+class Magazine extends LibraryEntity {
+	// cria a classe Magazine que herda da classe LibraryEntity
+	constructor(title, author, pubDate, code) {
+		// cria o construtor da classe Magazine
+		super(title, author, pubDate, code); // chama o construtor da classe LibraryEntity
+	}
+}
+
 class User extends Library {
 	// cria a classe usuario que herda da classe biblioteca
 	constructor(name, academicRegister, birthDate) {
