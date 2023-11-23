@@ -1,4 +1,4 @@
-class libraryEntity {
+class LibraryEntity {
 	constructor(title, author, pubDate, code) {
 		this.title = title;
 		this.author = author;
@@ -30,14 +30,14 @@ class libraryEntity {
 	}
 }
 
-class Book extends libraryEntity {
+class Book extends LibraryEntity {
 	constructor(title, author, pubDate, code) {
 		super(title, author, pubDate, code, genre);
 		this.genre = genre;
 	}
 }
 
-class Magazine extends libraryEntity {
+class Magazine extends LibraryEntity {
 	constructor(title, author, pubDate, code) {
 		super(title, author, pubDate, code);
 	}
