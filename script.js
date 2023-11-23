@@ -11,7 +11,7 @@ class libraryEntity {
 	borrowBook(user) {
 		if (this.isBorrowed) {
 			console.log("This Book is already borrowed");
-			this.isBorrowed = false;
+			this.isBorrowed = true;
 		} else {
 			console.log("You have just borrowed this book");
 			this.userBorrower = user;
@@ -30,45 +30,6 @@ class libraryEntity {
 	}
 }
 
-class Library {
-	constructor(collection, users) {
-		this.collection = collection;
-		this.users = users;
-	}
-
-	addUser(user) {
-		this.users.push(user);
-	}
-
-	removeUser(user) {
-		this.users = this.users.filter((item) => item !== user);
-	}
-
-	addEntity(entity) {
-		this.collection.push(entity);
-	}
-
-	removeEntity(entity) {
-		this.collection = this.collection.filter((item) => item !== entity);
-	}
-
-	borrowEntity(entity, user) {
-		if (this.collection.includes(entity)) {
-			entity.borrowBook(user);
-		} else {
-			console.log("This entity is not in the collection");
-		}
-	}
-
-	returnEntity(entity) {
-		if (this.collection.includes(entity)) {
-			entity.returnBook();
-		} else {
-			console.log("This entity is not in the collection");
-		}
-	}
-}
-
 class Book extends libraryEntity {
 	constructor(title, author, pubDate, code) {
 		super(title, author, pubDate, code, genre);
@@ -82,6 +43,43 @@ class Magazine extends libraryEntity {
 	}
 }
 
+class Library {
+	constructor(collection, users) {
+		this.collection = collection;
+		this.users = users;
+	}
+
+	addItem(item) {
+		this.collection.push(item);
+	}
+
+	listCollection() {
+		console.log(this.collection);
+	}
+
+	addUser(user) {
+		this.users.push(user);
+	}
+
+	borrowItem(code, user) {
+		let item = this.collection.find((item) => item.code === code);
+		if (item) {
+			item.borrowBook(user);
+		} else {
+			console.log("Item not found");
+		}
+	}
+
+	returnItem(code) {
+		let item = this.collection.find((item) => item.code === code);
+		if (item) {
+			item.returnBook();
+		} else {
+			console.log("Item not found");
+		}
+	}
+}
+
 class User {
 	constructor(name, academicRegister, birthDate) {
 		this.name = name;
@@ -89,6 +87,6 @@ class User {
 		this.birthDate = new Date(birthDate);
 	}
 	getBirthDate() {
-		return this.birthDate.toISOString().split("T")[0]; // Returns date in "YYYY-MM-DD" format
+		return this.birthDate.toISOString().split("T")[0]; // Retorna a data no formato YYYY-MM-DD
 	}
 }
