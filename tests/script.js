@@ -18,7 +18,6 @@ class Library {
 			);
 			const data = await response.json(); // transforma a resposta em json
 			this.collection = data; // atribui a resposta a coleção
-			console.log(this.collection); // mostra a coleção no console
 		} catch (error) {
 			// caso ocorra um erro
 			console.error("Error:", error); // mostra o erro no console
@@ -35,7 +34,6 @@ class Library {
 			);
 			const data = await response.json(); // transforma a resposta em json
 			this.users = data; // atribui a resposta a coleção
-			console.log(this.users); // mostra a coleção no console
 		} catch (error) {
 			//  caso ocorra um erro
 			console.error("Error:", error); // mostra o erro no console
@@ -44,13 +42,31 @@ class Library {
 
 	addItem(item) {}
 
-	listCollection() {}
+	async listCollection() {
+		// metodo que lista a coleção
+		await this.populateCollection();
+		console.log(this.collection);
+	}
 
-	addUser(user) {}
+	async listUsers() {
+		// metodo que lista os usuarios
+		await this.populateUsers();
+		console.log(this.users);
+	}
 
-	borrowItem(code, user) {}
+	addUser() {
+		// metodo que adiciona um usuario a coleção
+	}
 
-	returnItem(code) {}
+	borrowItem() {
+		// metodo que empresta um item da coleção
+	}
+
+	returnItem() {
+		// metodo que devolve um item da coleção
+	}
 }
 
 const library = new Library(); // cria uma nova biblioteca
+library.listCollection(); // lista a coleção no console
+library.listUsers(); // lista os usuarios no console
