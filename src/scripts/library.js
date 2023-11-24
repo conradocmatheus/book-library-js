@@ -1,24 +1,30 @@
 class Library {
 	// cria a classe biblioteca
 	constructor(users) {
-		// cria o construtor da classe biblioteca
-		this.collection = []; // cria a coleção
-		this.populateCollection();
+		this.collection = [];
 		this.users = users;
 	}
 
-	populateCollection() {
-		fetch("https://api-biblioteca-mb6w.onrender.com/acervo")
-			.then((response) => response.json())
-			.then((data) => {
-				data.forEach((entity) => {
-					this.collection.push(entity);
-					console.log(entity);
-				});
-			})
-			.catch((error) => {
-				console.log("Error:", error);
+	async init() {
+		await this.populateCollection();
+	}
+
+	async populateCollection() {
+		console.log("populateCollection called");
+		try {
+			const response = await fetch(
+				"https://api-biblioteca-mb6w.onrender.com/acervo"
+			);
+			console.log("Response:", response);
+			const data = await response.json();
+			console.log("Data:", data);
+			data.forEach((entity) => {
+				this.collection.push(entity);
 			});
+			console.log(this.collection);
+		} catch (error) {
+			console.log("Error:", error);
+		}
 	}
 
 	addItem(item) {
