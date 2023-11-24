@@ -1,9 +1,24 @@
 class Library {
 	// cria a classe biblioteca
-	constructor(collection, users) {
+	constructor(users) {
 		// cria o construtor da classe biblioteca
-		this.collection = collection;
+		this.collection = []; // cria a coleção
+		this.populateCollection();
 		this.users = users;
+	}
+
+	populateCollection() {
+		fetch("https://api-biblioteca-mb6w.onrender.com/acervo")
+			.then((response) => response.json())
+			.then((data) => {
+				data.forEach((entity) => {
+					this.collection.push(entity);
+					console.log(entity);
+				});
+			})
+			.catch((error) => {
+				console.log("Error:", error);
+			});
 	}
 
 	addItem(item) {
