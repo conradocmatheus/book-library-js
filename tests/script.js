@@ -41,6 +41,16 @@ class Library {
 			console.error("Error:", error); // mostra o erro no console
 		}
 	}
+
+	addItem(item) {}
+
+	listCollection() {}
+
+	addUser(user) {}
+
+	borrowItem(code, user) {}
+
+	returnItem(code) {}
 }
 
 const library = new Library(); // cria uma nova biblioteca
