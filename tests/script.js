@@ -26,15 +26,19 @@ class Library {
 	}
 
 	async populateUsers() {
+		// metodo que popula os usuarios
 		try {
+			// tenta fazer a requisição
 			const response = await fetch(
+				// faz a requisição
 				"https://api-biblioteca-mb6w.onrender.com/users"
 			);
-			const data = await response.json();
-			this.users = data;
-			console.log(this.users);
+			const data = await response.json(); // transforma a resposta em json
+			this.users = data; // atribui a resposta a coleção
+			console.log(this.users); // mostra a coleção no console
 		} catch (error) {
-			console.error("Error:", error);
+			//  caso ocorra um erro
+			console.error("Error:", error); // mostra o erro no console
 		}
 	}
 }
