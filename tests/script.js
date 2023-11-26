@@ -56,17 +56,17 @@ class Library {
 
 	addUser() {
 		// metodo que adiciona um usuario a coleção
-		let newUserName = prompt("Digite o nome do usuario:"); // pede o nome do usuario
-		let newUserAcademicRegister = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
-		let newUserBirthDate = new Date(
-			prompt("Digite a data de nascimento do usuario:")
-		); // pede a data de nascimento do usuario
+		let userNameInput = prompt("Digite o nome do usuario:"); // pede o nome do usuario
+		let academicRegisterInput = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
+		let dateInput = prompt("Digite a data de nascimento do usuario:");
+		let [day, month, year] = dateInput.split("-");
+		let birthDateInput = new Date(year, month - 1, day);
 
 		let user = {
 			// cria um objeto com os dados do usuario
-			name: newUserName,
-			academicRegister: newUserAcademicRegister,
-			birthDate: newUserBirthDate,
+			name: userNameInput,
+			academicRegister: academicRegisterInput,
+			birthDate: birthDateInput,
 		};
 		this.users.push(user); // adiciona o usuario a coleção
 	}
