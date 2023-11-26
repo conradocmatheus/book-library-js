@@ -29,6 +29,33 @@ class Library {
 		console.log(this.collection); // APAGAR DEPOIS E LISTAR NO HTML
 	}
 
+	addItem(item) {
+		// metodo que adiciona um item a coleção
+		itemTypeOption = document.getElementById("itemType"); // pega o tipo de item selecionado
+		itemTypeOption.document.createElement("option"); // cria um novo tipo de item
+		itemTitleInput = prompt("Digite o titulo do item:"); // pede o titulo do item
+		itemAuthorInput = prompt("Digite o autor do item:"); // pede o autor do item
+		this.collection.push(item); // adiciona o item a coleção
+	}
+
+	borrowItem() {
+		// metodo que empresta um item da coleção
+	}
+
+	returnItem() {
+		// metodo que devolve um item da coleção
+	}
+}
+
+class User extends Library {
+	// cria a classe usuario
+	constructor(name, academicRegister, birthDate) {
+		// cria o construtor da classe usuario
+		this.name = name; // atribui o nome do usuario
+		this.academicRegister = academicRegister; // atribui a matricula do usuario
+		this.birthDate = birthDate; // atribui a data de nascimento do usuario
+	}
+
 	async populateUsers() {
 		// metodo que popula os usuarios
 		try {
@@ -49,11 +76,6 @@ class Library {
 		}
 	}
 
-	async listUsers() {
-		// metodo que lista os usuarios
-		console.log(this.users); // APAGAR DEPOIS E LISTAR NO HTML
-	}
-
 	addUser() {
 		// metodo que adiciona um usuario a coleção
 		let userNameInput = prompt("Digite o nome do usuario:"); // pede o nome do usuario
@@ -71,14 +93,9 @@ class Library {
 		this.users.push(user); // adiciona o usuario a coleção
 	}
 
-	//addItem(item) {}
-
-	borrowItem() {
-		// metodo que empresta um item da coleção
-	}
-
-	returnItem() {
-		// metodo que devolve um item da coleção
+	async listUsers() {
+		// metodo que lista os usuarios
+		console.log(this.users); // APAGAR DEPOIS E LISTAR NO HTML
 	}
 }
 
