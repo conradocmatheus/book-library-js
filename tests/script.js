@@ -24,6 +24,11 @@ class Library {
 		}
 	}
 
+	async listCollection() {
+		// metodo que lista a coleção
+		console.log(this.collection); // APAGAR DEPOIS E LISTAR NO HTML
+	}
+
 	async populateUsers() {
 		// metodo que popula os usuarios
 		try {
@@ -33,30 +38,40 @@ class Library {
 				"https://api-biblioteca-mb6w.onrender.com/users"
 			);
 			const data = await response.json(); // transforma a resposta em json
-			this.users = data; // atribui a resposta a coleção
+			this.users = data.map((user) => ({
+				name: user.nome,
+				academicRegister: user.registroAcademico,
+				birthDate: user.dataNascimento,
+			})); // atribui a resposta a coleção
 		} catch (error) {
 			//  caso ocorra um erro
 			console.error("Error:", error); // mostra o erro no console
 		}
 	}
 
-	addItem(item) {}
-
-	async listCollection() {
-		// metodo que lista a coleção
-		await this.populateCollection();
-		console.log(this.collection);
-	}
-
 	async listUsers() {
 		// metodo que lista os usuarios
-		await this.populateUsers();
-		console.log(this.users);
+		console.log(this.users); // APAGAR DEPOIS E LISTAR NO HTML
 	}
 
 	addUser() {
 		// metodo que adiciona um usuario a coleção
+		let newUserName = prompt("Digite o nome do usuario:"); // pede o nome do usuario
+		let newUserAcademicRegister = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
+		let newUserBirthDate = new Date(
+			prompt("Digite a data de nascimento do usuario:")
+		); // pede a data de nascimento do usuario
+
+		let user = {
+			// cria um objeto com os dados do usuario
+			name: newUserName,
+			academicRegister: newUserAcademicRegister,
+			birthDate: newUserBirthDate,
+		};
+		this.users.push(user); // adiciona o usuario a coleção
 	}
+
+	//addItem(item) {}
 
 	borrowItem() {
 		// metodo que empresta um item da coleção
@@ -68,5 +83,3 @@ class Library {
 }
 
 const library = new Library(); // cria uma nova biblioteca
-library.listCollection(); // lista a coleção no console
-library.listUsers(); // lista os usuarios no console
