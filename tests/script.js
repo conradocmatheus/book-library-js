@@ -37,7 +37,7 @@ class Library {
 		// metodo que adiciona um usuario a coleção
 		let userNameInput = prompt("Digite o nome do usuario:"); // pede o nome do usuario
 		let academicRegisterInput = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
-		let dateInput = prompt("Digite a data de nascimento do usuario:");
+		let dateInput = prompt("Digite a data de nascimento do usuario:"); // devo arrumar o formato da data
 		let [day, month, year] = dateInput.split("-");
 		let birthDateInput = new Date(year, month - 1, day);
 
