@@ -36,12 +36,14 @@ class Library {
 	addUser() {
 		// metodo que adiciona um usuario a coleção
 		let userNameInput = prompt("Digite o nome do usuario:"); // pede o nome do usuario
-		let academicRegisterInput = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
-		let dateInput = prompt("Digite a data de nascimento do usuario:"); // devo arrumar o formato da data
-		let [day, month, year] = dateInput.split("-");
-		let birthDateInput = new Date(year, month - 1, day);
+		let userAcademicRegisterInput = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
+		let userBirthDateInput = prompt("Digite a data de nascimento do usuario:"); // devo arrumar o formato da data
 
-		let user = new User(userNameInput, academicRegisterInput, birthDateInput); // cria um novo usuario
+		let user = new User(
+			userNameInput,
+			userAcademicRegisterInput,
+			userBirthDateInput
+		); // cria um novo usuario
 		this.users.push(user); // adiciona o usuario a coleção
 	}
 
@@ -86,21 +88,22 @@ class Library {
 
 class User extends Library {
 	// cria a classe usuario
-	constructor(name, academicRegister, birthDate) {
+	constructor(userName, userAcademicRegister, userBirthDate) {
 		// cria o construtor da classe usuario
-		this.name = name; // atribui o nome do usuario
-		this.academicRegister = academicRegister; // atribui a matricula do usuario
-		this.birthDate = birthDate; // atribui a data de nascimento do usuario
+		this.userName = userName; // atribui o nome do usuario
+		this.userAcademicRegister = userAcademicRegister; // atribui a matricula do usuario
+		this.userBirthDate = userBirthDate; // atribui a data de nascimento do usuario
 	}
 }
 
 class BibliographicEntity extends Library {
 	// cria a classe entidade bibliografica
-	constructor(title, author) {
+	constructor(itemType, itemTitle, itemAuthor, itemPubDate, itemCode) {
 		// cria o construtor da classe entidade bibliografica
-		this.title = title;
-		this.author = author;
-		this.pubDate = new Date();
+		this.itemType = itemType; // atribui o tipo de item
+		this.itemTitle = itemTitle;
+		this.itemAuthor = itemAuthor;
+		this.itemPubDate = itemPubDate;
 		this.itemCode = itemCode;
 		isBorrowed = false;
 		userBorrower = null;
@@ -109,18 +112,18 @@ class BibliographicEntity extends Library {
 
 class Book extends BibliographicEntity {
 	// cria a classe Book que herda da classe BibliographicEntity
-	constructor(title, author, pubDate, itemCode) {
+	constructor(itemType, itemTitle, itemAuthor, itemPubDate, itemCode) {
 		// cria o construtor da classe Book
-		super(title, author, pubDate, itemCode); // chama o construtor da classe BibliographicEntity
+		super(itemType, itemTitle, itemAuthor, itemPubDate, itemCode); // chama o construtor da classe BibliographicEntity
 		this.genre = genre;
 	}
 }
 
 class Magazine extends BibliographicEntity {
 	// cria a classe Magazine que herda da classe BibliographicEntity
-	constructor(title, author, pubDate, code) {
+	constructor(itemType, itemTitle, itemAuthor, itemPubDate, itemCode) {
 		// cria o construtor da classe Magazine
-		super(title, author, pubDate, code); // chama o construtor da classe BibliographicEntity
+		super(itemType, itemTitle, itemAuthor, itemPubDate, itemCode); // chama o construtor da classe BibliographicEntity
 	}
 }
 
