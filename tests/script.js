@@ -94,4 +94,34 @@ class User extends Library {
 	}
 }
 
+class BibliographicEntity extends Library {
+	// cria a classe entidade bibliografica
+	constructor(title, author) {
+		// cria o construtor da classe entidade bibliografica
+		this.title = title;
+		this.author = author;
+		this.pubDate = new Date();
+		this.itemCode = itemCode;
+		isBorrowed = false;
+		userBorrower = null;
+	}
+}
+
+class Book extends BibliographicEntity {
+	// cria a classe Book que herda da classe BibliographicEntity
+	constructor(title, author, pubDate, itemCode) {
+		// cria o construtor da classe Book
+		super(title, author, pubDate, itemCode); // chama o construtor da classe BibliographicEntity
+		this.genre = genre;
+	}
+}
+
+class Magazine extends BibliographicEntity {
+	// cria a classe Magazine que herda da classe BibliographicEntity
+	constructor(title, author, pubDate, code) {
+		// cria o construtor da classe Magazine
+		super(title, author, pubDate, code); // chama o construtor da classe BibliographicEntity
+	}
+}
+
 const library = new Library(); // cria uma nova biblioteca
