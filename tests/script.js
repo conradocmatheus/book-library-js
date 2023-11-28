@@ -75,14 +75,26 @@ class Library {
 		itemAuthorInput = prompt("Digite o autor do item:"); // pede o autor do item
 		itemPubDateInput = prompt("Digite a data de publicação do item:"); // pede a data de publicação do item
 		itemCodeInput = prompt("Digite o codigo do item:"); // pede o codigo do item
-		newItem = new Book(
-			itemTypeOption,
-			itemTitleInput,
-			itemAuthorInput,
-			itemGenreInput,
-			itemPubDateInput,
-			itemCodeInput
-		); // cria um novo item
+		let newItem;
+		if (itemTypeOption == "book") {
+			itemGenreInput = prompt("Digite o genero do livro:"); // pede o genero do livro
+			newItem = new Book(
+				itemTypeOption,
+				itemTitleInput,
+				itemAuthorInput,
+				itemGenreInput,
+				itemPubDateInput,
+				itemCodeInput
+			); // cria um novo livro
+		} else if (itemTypeOption == "magazine") {
+			newItem = new Magazine(
+				itemTypeOption,
+				itemTitleInput,
+				itemAuthorInput,
+				itemPubDateInput,
+				itemCodeInput
+			); // cria uma nova revista
+		}
 		this.collection.push(item); // adiciona o item a coleção
 	}
 
