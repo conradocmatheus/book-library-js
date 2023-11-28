@@ -2,8 +2,8 @@ class Library {
 	// cria a classe biblioteca
 	constructor() {
 		//  cria o construtor da classe biblioteca
-		this.users = []; // cria a coleção de usuarios
-		this.collection = []; // cria a coleção de itens
+		this.users = []; // chama o metodo que popula os usuarios
+		this.collection = []; // chama o metodo que popula a coleção
 		this.populateCollection(); // chama o metodo que popula a coleção
 		this.populateUsers(); // chama o metodo que popula os usuarios
 	}
@@ -18,9 +18,9 @@ class Library {
 			);
 			const data = await response.json(); // transforma a resposta em json
 			this.users = data.map((user) => ({
-				name: user.nome,
-				academicRegister: user.registroAcademico,
-				birthDate: user.dataNascimento,
+				userName: user.nome,
+				userAcademicRegister: user.registroAcademico,
+				userBirthDate: user.dataNascimento,
 			})); // atribui a resposta a coleção
 		} catch (error) {
 			//  caso ocorra um erro
@@ -113,8 +113,8 @@ class Library {
 class User extends Library {
 	// cria a classe usuario
 	constructor(userName, userAcademicRegister, userBirthDate) {
-		super();
 		// cria o construtor da classe usuario
+		super(); // chama o construtor da classe biblioteca para poder usar seus metodos
 		this.userName = userName; // atribui o nome do usuario
 		this.userAcademicRegister = userAcademicRegister; // atribui a matricula do usuario
 		this.userBirthDate = userBirthDate; // atribui a data de nascimento do usuario
