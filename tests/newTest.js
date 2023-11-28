@@ -22,10 +22,10 @@ class Library {
 	}
 
 	async listUsers() {
-		// metodo que lista os usuarios
 		console.log(this.users); // APAGAR DEPOIS E LISTAR NO HTML
 	}
 
+	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
 	addUser() {
 		// metodo que adiciona um usuario a coleção
 		let userNameInput = prompt("Digite o nome do usuario:");
@@ -39,20 +39,20 @@ class Library {
 		);
 		this.users.push(newUser);
 	}
+	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
 }
 
+// NO WORK NEEDED FOR NOW
 class User {
-	// cria a classe usuario
 	constructor(userName, userAcademicRegister, userBirthDate) {
-		// cria o construtor da classe usuario
-		this.userName = userName; // atribui o nome do usuario
-		this.userAcademicRegister = userAcademicRegister; // atribui a matricula do usuario
-		this.userBirthDate = userBirthDate; // atribui a data de nascimento do usuario
+		this.userName = userName;
+		this.userAcademicRegister = userAcademicRegister;
+		this.userBirthDate = userBirthDate;
 	}
 }
+// NO WORK NEEDED FOR NOW
 
 class BibliographicEntity {
-	// cria a classe entidade bibliografica
 	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		this.itemCode = itemCode;
 		this.itemTitle = itemTitle;
@@ -64,14 +64,12 @@ class BibliographicEntity {
 }
 
 class Book extends BibliographicEntity {
-	// cria a classe Book que herda da classe BibliographicEntity
 	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		super(itemCode, itemTitle, itemAuthor, itemPubDate);
 	}
 }
 
 class Magazine extends BibliographicEntity {
-	// cria a classe Magazine que herda da classe BibliographicEntity
 	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		super(itemCode, itemTitle, itemAuthor, itemPubDate);
 	}
