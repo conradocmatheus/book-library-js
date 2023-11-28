@@ -1,0 +1,8 @@
+//{"codigo":"LC123",
+//"titulo":"Dom Casmurro",
+//"autor":"Machado de Assis",
+//"anoPublicacao":1899,
+//"emprestado":false,
+//"usuarioEmprestimo":null,
+//"genero":"Drama",
+//"entidadeBibliografica":"Livro"}

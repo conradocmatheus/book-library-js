@@ -56,7 +56,12 @@ class Library {
 				"https://api-biblioteca-mb6w.onrender.com/acervo"
 			);
 			const data = await response.json(); // transforma a resposta em json
-			this.collection = data; // atribui a resposta a coleção
+			this.collection = data.map((item) => ({
+				itemCode: item.codigo,
+				itemTitle: item.titulo,
+				itemAuthor: item.autor,
+				itemPubDate: item.dataPublicacao,
+			})); // atribui a resposta a coleção
 		} catch (error) {
 			// caso ocorra um erro
 			console.error("Error:", error); // mostra o erro no console
@@ -68,34 +73,32 @@ class Library {
 		console.log(this.collection); // APAGAR DEPOIS E LISTAR NO HTML
 	}
 
-	addItem(item) {
+	addItem() {
 		// metodo que adiciona um item a coleção
-		itemTypeOption = document.getElementById("itemType"); // pega o tipo de item selecionado
+		itemCodeInput = prompt("Digite o codigo do item:"); // pede o codigo do item
 		itemTitleInput = prompt("Digite o titulo do item:"); // pede o titulo do item
 		itemAuthorInput = prompt("Digite o autor do item:"); // pede o autor do item
 		itemPubDateInput = prompt("Digite a data de publicação do item:"); // pede a data de publicação do item
-		itemCodeInput = prompt("Digite o codigo do item:"); // pede o codigo do item
+
 		let newItem;
 		if (itemTypeOption == "book") {
 			itemGenreInput = prompt("Digite o genero do livro:"); // pede o genero do livro
 			newItem = new Book(
-				itemTypeOption,
+				itemCodeInput,
 				itemTitleInput,
 				itemAuthorInput,
 				itemPubDateInput,
-				itemCodeInput,
 				itemGenreInput
 			); // cria um novo livro
 		} else if (itemTypeOption == "magazine") {
 			newItem = new Magazine(
-				itemTypeOption,
+				itemCodeInput,
 				itemTitleInput,
 				itemAuthorInput,
-				itemPubDateInput,
-				itemCodeInput
+				itemPubDateInput
 			); // cria uma nova revista
 		}
-		this.collection.push(item); // adiciona o item a coleção
+		this.collection.push(newItem); // adiciona o item a coleção
 	}
 
 	borrowItem() {
@@ -119,13 +122,12 @@ class User extends Library {
 
 class BibliographicEntity extends Library {
 	// cria a classe entidade bibliografica
-	constructor(itemType, itemTitle, itemAuthor, itemPubDate, itemCode) {
+	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		// cria o construtor da classe entidade bibliografica
-		this.itemType = itemType; // atribui o tipo de item
+		this.itemCode = itemCode;
 		this.itemTitle = itemTitle;
 		this.itemAuthor = itemAuthor;
 		this.itemPubDate = itemPubDate;
-		this.itemCode = itemCode;
 		isBorrowed = false;
 		userBorrower = null;
 	}
@@ -133,18 +135,18 @@ class BibliographicEntity extends Library {
 
 class Book extends BibliographicEntity {
 	// cria a classe Book que herda da classe BibliographicEntity
-	constructor(itemType, itemTitle, itemAuthor, itemPubDate, itemCode) {
+	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		// cria o construtor da classe Book
-		super(itemType, itemTitle, itemAuthor, itemPubDate, itemCode); // chama o construtor da classe BibliographicEntity
+		super(itemCode, itemTitle, itemAuthor, itemPubDate, "Book"); // chama o construtor da classe BibliographicEntity
 		this.genre = genre;
 	}
 }
 
 class Magazine extends BibliographicEntity {
 	// cria a classe Magazine que herda da classe BibliographicEntity
-	constructor(itemType, itemTitle, itemAuthor, itemPubDate, itemCode) {
+	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		// cria o construtor da classe Magazine
-		super(itemType, itemTitle, itemAuthor, itemPubDate, itemCode); // chama o construtor da classe BibliographicEntity
+		super(itemTitle, itemAuthor, itemPubDate, itemCode); // chama o construtor da classe BibliographicEntity
 	}
 }
 
