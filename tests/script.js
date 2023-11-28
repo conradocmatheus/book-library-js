@@ -113,6 +113,7 @@ class Library {
 class User extends Library {
 	// cria a classe usuario
 	constructor(userName, userAcademicRegister, userBirthDate) {
+		super();
 		// cria o construtor da classe usuario
 		this.userName = userName; // atribui o nome do usuario
 		this.userAcademicRegister = userAcademicRegister; // atribui a matricula do usuario
@@ -122,23 +123,25 @@ class User extends Library {
 
 class BibliographicEntity extends Library {
 	// cria a classe entidade bibliografica
-	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
+	constructor(itemCode, itemTitle, itemAuthor, itemPubDate, entityType) {
+		super(); // chama o construtor da classe biblioteca para poder usar seus metodos
 		// cria o construtor da classe entidade bibliografica
 		this.itemCode = itemCode;
 		this.itemTitle = itemTitle;
 		this.itemAuthor = itemAuthor;
 		this.itemPubDate = itemPubDate;
-		isBorrowed = false;
-		userBorrower = null;
+		this.isBorrowed = false;
+		this.userBorrower = null;
+		this.entityType = entityType;
 	}
 }
 
 class Book extends BibliographicEntity {
 	// cria a classe Book que herda da classe BibliographicEntity
-	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
+	constructor(itemCode, itemTitle, itemAuthor, itemPubDate, itemBookGenre) {
 		// cria o construtor da classe Book
 		super(itemCode, itemTitle, itemAuthor, itemPubDate, "Book"); // chama o construtor da classe BibliographicEntity
-		this.genre = genre;
+		this.itemBookGenre = itemBookGenre;
 	}
 }
 
@@ -146,7 +149,7 @@ class Magazine extends BibliographicEntity {
 	// cria a classe Magazine que herda da classe BibliographicEntity
 	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		// cria o construtor da classe Magazine
-		super(itemTitle, itemAuthor, itemPubDate, itemCode, "Magazine"); // chama o construtor da classe BibliographicEntity
+		super(itemCode, itemTitle, itemAuthor, itemPubDate, "Magazine"); // chama o construtor da classe BibliographicEntity
 	}
 }
 
