@@ -5,6 +5,7 @@ class Library {
 		this.populateUsers();
 	}
 
+	// DONE FOR NOW
 	async populateUsers() {
 		try {
 			const response = await fetch(
@@ -20,14 +21,16 @@ class Library {
 			console.error("Error:", error);
 		}
 	}
+	// DONE FOR NOW
 
+	// NEED TO WORK ON THIS
 	async listUsers() {
 		console.log(this.users); // APAGAR DEPOIS E LISTAR NO HTML
 	}
+	// NEED TO WORK ON THIS
 
 	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
 	addUser() {
-		// metodo que adiciona um usuario a coleção
 		let userNameInput = prompt("Digite o nome do usuario:");
 		let userAcademicRegisterInput = prompt("Digite a matricula do usuario:");
 		let userBirthDateInput = prompt("Digite a data de nascimento do usuario:"); // devo arrumar o formato da data
