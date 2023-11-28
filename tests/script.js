@@ -39,12 +39,12 @@ class Library {
 		let userAcademicRegisterInput = prompt("Digite a matricula do usuario:"); // pede a matricula do usuario
 		let userBirthDateInput = prompt("Digite a data de nascimento do usuario:"); // devo arrumar o formato da data
 
-		let user = new User(
+		let newUser = new User(
 			userNameInput,
 			userAcademicRegisterInput,
 			userBirthDateInput
 		); // cria um novo usuario
-		this.users.push(user); // adiciona o usuario a coleção
+		this.users.push(newUser); // adiciona o usuario a coleção
 	}
 
 	async populateCollection() {
@@ -71,9 +71,18 @@ class Library {
 	addItem(item) {
 		// metodo que adiciona um item a coleção
 		itemTypeOption = document.getElementById("itemType"); // pega o tipo de item selecionado
-		itemTypeOption.document.createElement("option"); // cria um novo tipo de item
 		itemTitleInput = prompt("Digite o titulo do item:"); // pede o titulo do item
 		itemAuthorInput = prompt("Digite o autor do item:"); // pede o autor do item
+		itemPubDateInput = prompt("Digite a data de publicação do item:"); // pede a data de publicação do item
+		itemCodeInput = prompt("Digite o codigo do item:"); // pede o codigo do item
+		newItem = new Book(
+			itemTypeOption,
+			itemTitleInput,
+			itemAuthorInput,
+			itemGenreInput,
+			itemPubDateInput,
+			itemCodeInput
+		); // cria um novo item
 		this.collection.push(item); // adiciona o item a coleção
 	}
 
