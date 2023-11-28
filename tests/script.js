@@ -82,9 +82,9 @@ class Library {
 				itemTypeOption,
 				itemTitleInput,
 				itemAuthorInput,
-				itemGenreInput,
 				itemPubDateInput,
-				itemCodeInput
+				itemCodeInput,
+				itemGenreInput
 			); // cria um novo livro
 		} else if (itemTypeOption == "magazine") {
 			newItem = new Magazine(
