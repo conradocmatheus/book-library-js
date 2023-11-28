@@ -146,7 +146,7 @@ class Magazine extends BibliographicEntity {
 	// cria a classe Magazine que herda da classe BibliographicEntity
 	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
 		// cria o construtor da classe Magazine
-		super(itemTitle, itemAuthor, itemPubDate, itemCode); // chama o construtor da classe BibliographicEntity
+		super(itemTitle, itemAuthor, itemPubDate, itemCode, "Magazine"); // chama o construtor da classe BibliographicEntity
 	}
 }
 
