@@ -88,7 +88,7 @@ class Library {
 	}
 	// DONE
 
-	// NEEDS WORK
+	// NO WORK NEEDED FOR NOW
 	async populateCollection() {
 		try {
 			const response = await fetch(
@@ -96,21 +96,33 @@ class Library {
 			);
 			const data = await response.json();
 
-			this.collection = data.map(
-				(item) =>
-					new BibliographicEntity(
+			this.collection = data.map((item) => {
+				if (item.entidadeBibliografica == "Livro") {
+					return new Book(
 						item.codigo,
 						item.titulo,
 						item.autor,
-						item.anoPublicacao
-					)
-			);
+						item.anoPublicacao,
+						item.genero,
+						item.entidadeBibliografica
+					);
+				} else if (item.entidadeBibliografica == "Revista") {
+					return new Magazine(
+						item.codigo,
+						item.titulo,
+						item.autor,
+						item.anoPublicacao,
+						item.edicao,
+						item.entidadeBibliografica
+					);
+				}
+			});
 			console.log(this.collection);
 		} catch (error) {
 			console.error("Error:", error);
 		}
 	}
-	// NEEDS WORK
+	// NO WORK NEEDED FOR NOW
 }
 
 // NO WORK NEEDED FOR NOW
@@ -124,13 +136,14 @@ class User {
 // NO WORK NEEDED FOR NOW
 
 class BibliographicEntity {
-	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
+	constructor(itemCode, itemTitle, itemAuthor, itemPubDate, itemType) {
 		this.itemCode = itemCode;
 		this.itemTitle = itemTitle;
 		this.itemAuthor = itemAuthor;
 		this.itemPubDate = itemPubDate;
 		this.isBorrowed = false;
 		this.userBorrower = null;
+		this.itemType = itemType;
 	}
 }
 
