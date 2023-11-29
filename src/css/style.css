@@ -1,3 +1,7 @@
+* {
+	box-sizing: content-box;
+}
+
 main {
 	display: flex;
 	flex-direction: column;
