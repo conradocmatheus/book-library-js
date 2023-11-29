@@ -12,3 +12,7 @@ main {
 	padding: 0;
 	background: #f8f9fa;
 }
+
+.modal-body {
+	padding: 16rem;
+}
