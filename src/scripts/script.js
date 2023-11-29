@@ -103,8 +103,8 @@ class Library {
 						item.titulo,
 						item.autor,
 						item.anoPublicacao,
-						item.genero,
-						item.entidadeBibliografica
+						item.entidadeBibliografica,
+						item.genero
 					);
 				} else if (item.entidadeBibliografica == "Revista") {
 					return new Magazine(
@@ -112,8 +112,8 @@ class Library {
 						item.titulo,
 						item.autor,
 						item.anoPublicacao,
-						item.edicao,
-						item.entidadeBibliografica
+						item.entidadeBibliografica,
+						item.edicao
 					);
 				}
 			});
@@ -148,14 +148,30 @@ class BibliographicEntity {
 }
 
 class Book extends BibliographicEntity {
-	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
-		super(itemCode, itemTitle, itemAuthor, itemPubDate);
+	constructor(
+		itemCode,
+		itemTitle,
+		itemAuthor,
+		itemPubDate,
+		itemType,
+		itemGenre
+	) {
+		super(itemCode, itemTitle, itemAuthor, itemPubDate, itemType);
+		this.itemGenre = itemGenre;
 	}
 }
 
 class Magazine extends BibliographicEntity {
-	constructor(itemCode, itemTitle, itemAuthor, itemPubDate) {
-		super(itemCode, itemTitle, itemAuthor, itemPubDate);
+	constructor(
+		itemCode,
+		itemTitle,
+		itemAuthor,
+		itemPubDate,
+		itemType,
+		itemEdition
+	) {
+		super(itemCode, itemTitle, itemAuthor, itemPubDate, itemType);
+		this.itemEdition = itemEdition;
 	}
 }
 
