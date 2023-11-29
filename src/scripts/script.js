@@ -47,11 +47,19 @@ class Library {
 	}
 	// DONE FOR NOW
 
-	// DONE FOR NOW
+	// DONE
 	addUser() {
 		let userFirstNameInput = document.getElementById("inputFirstName");
 		let userLastNameInput = document.getElementById("inputLastName");
 		let userAcademicRegisterInput = document.getElementById("inputAR");
+		for (let i = 0; i < this.users.length; i++) {
+			if (
+				this.users[i].userAcademicRegister === userAcademicRegisterInput.value
+			) {
+				alert("Academic Register already in use");
+				return;
+			}
+		}
 		let userBirthDateInput = document.getElementById("inputBdate");
 		if (
 			!userFirstNameInput.value ||
@@ -78,7 +86,7 @@ class Library {
 		userBirthDateInput.value = "";
 		this.listUsers();
 	}
-	// DONE FOR NOW
+	// DONE
 
 	// NEEDS WORK
 	async populateCollection() {
