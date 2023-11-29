@@ -98,13 +98,13 @@
 				type="button"
 				class="btn btn-primary"
 				data-bs-toggle="modal"
-				data-bs-target="#exampleModal">
+				data-bs-target="#addUserModal">
 				Add User
 			</button>
 			<!-- Modal -->
 			<div
 				class="modal fade"
-				id="exampleModal"
+				id="addUserModal"
 				tabindex="-1"
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
@@ -125,23 +125,52 @@
 						<div class="modal-body">
 							<form class="row g-3">
 								<div class="col-md-6">
-								  <label for="inputName" class="form-label">First Name</label>
-								  <input type="text" class="form-control" id="inputName">
+									<label
+										for="inputFirstName"
+										class="form-label"
+										>First Name</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="inputFirstName" />
 								</div>
 								<div class="col-md-6">
-								  <label for="inputLastName" class="form-label">Last Name</label>
-								  <input type="text" class="form-control" id="inputLastName">
+									<label
+										for="inputLastName"
+										class="form-label"
+										>Last Name</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="inputLastName" />
 								</div>
-							
+
 								<div class="col-md-6">
-								  <label for="inputBdate" class="form-label">Birthdate</label>
-								  <input type="date" class="form-control" id="inputBdate">
+									<label
+										for="inputBdate"
+										class="form-label"
+										>Birthdate</label
+									>
+									<input
+										type="date"
+										class="form-control"
+										id="inputBdate" />
 								</div>
 								<div class="col-md-6">
-								  <label for="inputAR" class="form-label">Academic Register</label>
-								  <input type="number" class="form-control" id="inputAR">
+									<label
+										for="inputAR"
+										class="form-label"
+										>Academic Register</label
+									>
+									<input
+										type="number"
+										class="form-control"
+										id="inputAR" />
 								</div>
-							  </form>
+							</form>
+						</div>
 						<div class="modal-footer">
 							<button
 								type="button"
@@ -150,6 +179,7 @@
 								Close
 							</button>
 							<button
+								onclick="library.addUser()"
 								type="button"
 								class="btn btn-primary">
 								Add User
@@ -158,9 +188,64 @@
 					</div>
 				</div>
 			</div>
+			<button
+				onclick="library.listUsers()"
+				type="button"
+				class="btn btn-primary"
+				data-bs-toggle="modal"
+				data-bs-target="#listUsersModal">
+				List Users
+			</button>
+			<div
+				class="modal fade"
+				id="listUsersModal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1
+								class="modal-title fs-5"
+								id="exampleModalLabel">
+								USER LIST
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<table
+								id="usersTable"
+								class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Academic Register</th>
+										<th>Birth Date</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Users will be inserted here -->
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
-		<script src="src/scripts/script.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="src/scripts/script.js"></script>
 	</body>
 </html>

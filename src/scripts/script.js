@@ -24,23 +24,48 @@ class Library {
 	// DONE FOR NOW
 
 	// NEED TO WORK ON THIS
-	async listUsers() {
-		console.log(this.users); // APAGAR DEPOIS E LISTAR NO HTML
+	listUsers() {
+		const usersTable = document
+			.getElementById("usersTable")
+			.getElementsByTagName("tbody")[0];
+
+		usersTable.innerHTML = "";
+		this.users.forEach((user) => {
+			console.log(user); // Log the User object to the console
+
+			let row = usersTable.insertRow();
+
+			let nameCell = row.insertCell();
+			let academicRegisterCell = row.insertCell();
+			let birthDateCell = row.insertCell();
+
+			nameCell.textContent = user.userName;
+			academicRegisterCell.textContent = user.userAcademicRegister;
+			birthDateCell.textContent = user.userBirthDate;
+		});
 	}
 	// NEED TO WORK ON THIS
 
 	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
 	addUser() {
-		let userNameInput = prompt("Digite o nome do usuario:");
-		let userAcademicRegisterInput = prompt("Digite a matricula do usuario:");
-		let userBirthDateInput = prompt("Digite a data de nascimento do usuario:"); // devo arrumar o formato da data
+		let userFirstNameInput = document.getElementById("inputFirstName");
+		let userLastNameInput = document.getElementById("inputLastName");
+		let userAcademicRegisterInput = document.getElementById("inputAR");
+		let userBirthDateInput = document.getElementById("inputBdate");
+
+		let userNameInput = `${userFirstNameInput.value} ${userLastNameInput.value}`;
 
 		let newUser = new User(
 			userNameInput,
-			userAcademicRegisterInput,
-			userBirthDateInput
+			userAcademicRegisterInput.value,
+			userBirthDateInput.value
 		);
 		this.users.push(newUser);
+
+		userFirstNameInput.value = "";
+		userLastNameInput.value = "";
+		userAcademicRegisterInput.value = "";
+		userBirthDateInput.value = "";
 	}
 	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
 }
