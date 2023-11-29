@@ -53,6 +53,15 @@ class Library {
 		let userLastNameInput = document.getElementById("inputLastName");
 		let userAcademicRegisterInput = document.getElementById("inputAR");
 		let userBirthDateInput = document.getElementById("inputBdate");
+		if (
+			!userFirstNameInput.value ||
+			!userLastNameInput.value ||
+			!userAcademicRegisterInput.value ||
+			!userBirthDateInput.value
+		) {
+			alert("All fields must be filled out");
+			return;
+		}
 
 		let userNameInput = `${userFirstNameInput.value} ${userLastNameInput.value}`;
 
@@ -67,6 +76,7 @@ class Library {
 		userLastNameInput.value = "";
 		userAcademicRegisterInput.value = "";
 		userBirthDateInput.value = "";
+		this.listUsers();
 	}
 	// DONE FOR NOW
 
