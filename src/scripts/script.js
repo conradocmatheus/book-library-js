@@ -70,6 +70,7 @@ class Library {
 	}
 	// DONE FOR NOW
 
+	// NEEDS WORK
 	async populateCollection() {
 		try {
 			const response = await fetch(
@@ -91,6 +92,7 @@ class Library {
 			console.error("Error:", error);
 		}
 	}
+	// NEEDS WORK
 }
 
 // NO WORK NEEDED FOR NOW
