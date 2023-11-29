@@ -6,7 +6,7 @@ class Library {
 		this.populateCollection();
 	}
 
-	// DONE FOR NOW
+	// DONE
 	async populateUsers() {
 		try {
 			const response = await fetch(
@@ -22,9 +22,9 @@ class Library {
 			console.error("Error:", error);
 		}
 	}
-	// DONE FOR NOW
+	// DONE
 
-	// DONE FOR NOW
+	// DONE
 	listUsers() {
 		const usersTable = document
 			.getElementById("usersTable")
@@ -45,7 +45,7 @@ class Library {
 			birthDateCell.textContent = user.userBirthDate;
 		});
 	}
-	// DONE FOR NOW
+	// DONE
 
 	// DONE
 	addUser() {
