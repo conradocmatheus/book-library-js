@@ -79,25 +79,3 @@ class Magazine extends BibliographicEntity {
 }
 
 const library = new Library();
-
-///=====================
-
-function openModal(modalId) {
-	var modal = document.getElementById(modalId);
-	modal.style.display = "block";
-}
-
-// Add event listeners for close buttons
-var closeButtons = document.getElementsByClassName("close");
-for (var i = 0; i < closeButtons.length; i++) {
-	closeButtons[i].onclick = function () {
-		this.parentElement.parentElement.style.display = "none";
-	};
-}
-
-// Close the modal when the user clicks anywhere outside of it
-window.onclick = function (event) {
-	if (event.target.classList.contains("modal")) {
-		event.target.style.display = "none";
-	}
-};
