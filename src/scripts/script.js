@@ -3,6 +3,7 @@ class Library {
 		this.users = [];
 		this.collection = [];
 		this.populateUsers();
+		this.populateCollection();
 	}
 
 	// DONE FOR NOW
@@ -23,7 +24,7 @@ class Library {
 	}
 	// DONE FOR NOW
 
-	// NEED TO WORK ON THIS
+	// DONE FOR NOW
 	listUsers() {
 		const usersTable = document
 			.getElementById("usersTable")
@@ -44,9 +45,9 @@ class Library {
 			birthDateCell.textContent = user.userBirthDate;
 		});
 	}
-	// NEED TO WORK ON THIS
+	// DONE FOR NOW
 
-	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
+	// DONE FOR NOW
 	addUser() {
 		let userFirstNameInput = document.getElementById("inputFirstName");
 		let userLastNameInput = document.getElementById("inputLastName");
@@ -67,7 +68,29 @@ class Library {
 		userAcademicRegisterInput.value = "";
 		userBirthDateInput.value = "";
 	}
-	// NEED TO WORK ON THIS, ESPECIALLY THE DATE PART
+	// DONE FOR NOW
+
+	async populateCollection() {
+		try {
+			const response = await fetch(
+				"https://api-biblioteca-mb6w.onrender.com/acervo"
+			);
+			const data = await response.json();
+
+			this.collection = data.map(
+				(item) =>
+					new BibliographicEntity(
+						item.codigo,
+						item.titulo,
+						item.autor,
+						item.anoPublicacao
+					)
+			);
+			console.log(this.collection);
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	}
 }
 
 // NO WORK NEEDED FOR NOW
