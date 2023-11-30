@@ -96,7 +96,7 @@ class Library {
 	}
 	// DONE
 
-	// NO WORK NEEDED FOR NOW
+	// DONE
 	async populateCollection() {
 		try {
 			const response = await fetch(
@@ -139,9 +139,9 @@ class Library {
 			console.error("Error:", error);
 		}
 	}
-	// NO WORK NEEDED FOR NOW
+	// DONE
 
-	// NO WORK NEEDED FOR NOW
+	// DONE
 	listCollection() {
 		const collectionTable = document
 			.getElementById("collectionTable")
@@ -172,8 +172,9 @@ class Library {
 				item.userBorrower === null ? "None" : item.userBorrower;
 		});
 	}
-	// NO WORK NEEDED FOR NOW
+	// DONE
 
+	// DONE
 	addCollectionItem() {
 		let itemType = document.getElementById("inputItemType");
 		let itemTitle = document.getElementById("inputItemTitle");
@@ -234,6 +235,7 @@ class Library {
 		itemEdition.value = "";
 		this.listCollection();
 	}
+	// DONE
 }
 
 // NO WORK NEEDED FOR NOW
