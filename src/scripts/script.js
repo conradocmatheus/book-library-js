@@ -104,9 +104,9 @@ class Library {
 						item.autor,
 						item.anoPublicacao,
 						item.entidadeBibliografica,
+						item.genero,
 						item.emprestado,
-						item.usuarioEmprestimo,
-						item.genero
+						item.usuarioEmprestimo
 					);
 				} else if (item.entidadeBibliografica === "Revista") {
 					return new Magazine(
@@ -115,9 +115,9 @@ class Library {
 						item.autor,
 						item.anoPublicacao,
 						item.entidadeBibliografica,
+						item.edicao,
 						item.emprestado,
-						item.usuarioEmprestimo,
-						item.edicao
+						item.usuarioEmprestimo
 					);
 				}
 			});
@@ -131,6 +131,34 @@ class Library {
 	// WORK NEEDED
 	listCollection() {
 		const collectionTable = document
+			.getElementById("collectionTable")
+			.getElementsByTagName("tbody")[0];
+
+		collectionTable.innerHTML = "";
+		this.collection.forEach((item) => {
+			let row = collectionTable.insertRow();
+
+			let codeCell = row.insertCell();
+			let titleCell = row.insertCell();
+			let authorCell = row.insertCell();
+			let pubDateCell = row.insertCell();
+			let typeCell = row.insertCell();
+			let genreEditionCell = row.insertCell();
+			let borrowedCell = row.insertCell();
+			let borrowerCell = row.insertCell();
+
+			codeCell.textContent = item.itemCode;
+			titleCell.textContent = item.itemTitle;
+			authorCell.textContent = item.itemAuthor;
+			pubDateCell.textContent = item.itemPubDate;
+			typeCell.textContent = item.itemType;
+			genreEditionCell.textContent =
+				item.itemType === "Livro" ? item.itemGenre : item.itemEdition;
+			borrowedCell.textContent = item.isBorrowed;
+			borrowerCell.textContent =
+				item.userBorrower === null ? "None" : item.userBorrower;
+		});
+	}
 	// WORK NEEDED
 }
 

@@ -249,6 +249,68 @@
 					</div>
 				</div>
 			</div>
+			<!-- Button trigger ListUsers Modal -->
+			<button
+				onclick="library.listCollection()"
+				type="button"
+				class="btn btn-primary"
+				data-bs-toggle="modal"
+				data-bs-target="#listCollectionModal">
+				List Collection
+			</button>
+			<!-- ListCollection Modal -->
+			<div
+				class="modal fade modal-xl"
+				id="listCollectionModal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1
+								class="modal-title fs-5"
+								id="exampleModalLabel">
+								COLLECTION LIST
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<table
+								id="collectionTable"
+								class="table table-striped">
+								<thead>
+									<tr>
+										<th>Code</th>
+										<th>Title</th>
+										<th>Author</th>
+										<th>PubDate</th>
+										<th>Type</th>
+										<th>Genre/Edition</th>
+										<th>Borrowed</th>
+										<th>Borrower</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Users will be inserted here -->
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
