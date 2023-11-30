@@ -127,6 +127,11 @@ class Library {
 		}
 	}
 	// NO WORK NEEDED FOR NOW
+
+	// WORK NEEDED
+	listCollection() {
+		const collectionTable = document
+	// WORK NEEDED
 }
 
 // NO WORK NEEDED FOR NOW
