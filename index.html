@@ -451,6 +451,79 @@
 					</div>
 				</div>
 			</div>
+			<!-- Button trigger AddUser Modal -->
+			<button
+				type="button"
+				class="btn btn-primary"
+				data-bs-toggle="modal"
+				data-bs-target="#BorrowItemModal">
+				Borrow Item
+			</button>
+			<!-- AddUser Modal -->
+			<div
+				class="modal fade"
+				id="BorrowItemModal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1
+								class="modal-title fs-5"
+								id="exampleModalLabel">
+								ADD USER
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form class="row g-3">
+								<div class="col-md-6">
+									<label
+										for="inputEntityCodeBorrow"
+										class="form-label"
+										>Entity Code</label
+									>
+									<input
+										required
+										type="text"
+										class="form-control"
+										id="inputEntityCodeBorrow" />
+								</div>
+								<div class="col-md-6">
+									<label
+										for="inputUserRABorrow"
+										class="form-label"
+										>User RA</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="inputUserRABorrow" />
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+							<button
+								onclick="library.addUser()"
+								type="button"
+								class="btn btn-primary">
+								Borrow
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>

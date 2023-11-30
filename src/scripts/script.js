@@ -256,6 +256,8 @@ class BibliographicEntity {
 		this.userBorrower = null;
 		this.itemType = itemType;
 	}
+
+	borrow() {}
 }
 
 class Book extends BibliographicEntity {
