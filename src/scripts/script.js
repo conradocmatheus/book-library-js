@@ -42,8 +42,6 @@ class Library {
 
 		usersTable.innerHTML = "";
 		this.users.forEach((user) => {
-			console.log(user); // Log the User object to the console
-
 			let row = usersTable.insertRow();
 
 			let nameCell = row.insertCell();
@@ -108,23 +106,29 @@ class Library {
 
 			this.collection = data.map((item) => {
 				if (item.entidadeBibliografica === "Livro") {
+					if (item.genero === "Terror") {
+						item.genero = "Horror";
+					}
 					return new Book(
 						item.codigo,
 						item.titulo,
 						item.autor,
 						item.anoPublicacao,
-						item.entidadeBibliografica,
+						"Book",
 						item.genero,
 						item.emprestado,
 						item.usuarioEmprestimo
 					);
 				} else if (item.entidadeBibliografica === "Revista") {
+					if (item.edicao === "Março") {
+						item.edicao = "March";
+					}
 					return new Magazine(
 						item.codigo,
 						item.titulo,
 						item.autor,
 						item.anoPublicacao,
-						item.entidadeBibliografica,
+						"Magazine",
 						item.edicao,
 						item.emprestado,
 						item.usuarioEmprestimo
@@ -209,7 +213,6 @@ class Library {
 				itemType.value,
 				itemGenre.value
 			);
-			console.log(newItem);
 			this.collection.push(newItem);
 		} else if (itemType.value === "Magazine") {
 			let newItem = new Magazine(
@@ -220,9 +223,16 @@ class Library {
 				itemType.value,
 				itemEdition.value
 			);
-			console.log(newItem);
 			this.collection.push(newItem);
 		}
+		itemType.value = "";
+		itemTitle.value = "";
+		itemAuthor.value = "";
+		itemPubDate.value = "";
+		itemCode.value = "";
+		itemGenre.value = "";
+		itemEdition.value = "";
+		this.listCollection();
 	}
 }
 
