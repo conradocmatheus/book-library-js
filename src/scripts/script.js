@@ -1,3 +1,13 @@
+const genres = [
+	(HORROR = "Horror"),
+	(COMEDY = "Comedy"),
+	(THRILLER = "Thriller"),
+	(DRAMA = "Drama"),
+	(SUSPENSE = "Suspense"),
+	(SCI_FI = "Sci-Fi"),
+	(HISTORY = "History"),
+];
+
 class Library {
 	constructor() {
 		this.users = [];
@@ -152,7 +162,7 @@ class Library {
 			pubDateCell.textContent = item.itemPubDate;
 			typeCell.textContent = item.itemType;
 			genreEditionCell.textContent =
-				item.itemType === "Livro" ? item.itemGenre : item.itemEdition;
+				item.itemType === "Book" ? item.itemGenre : item.itemEdition;
 			borrowedCell.textContent = item.isBorrowed;
 			borrowerCell.textContent =
 				item.userBorrower === null ? "None" : item.userBorrower;
@@ -199,6 +209,7 @@ class Library {
 				itemType.value,
 				itemGenre.value
 			);
+			console.log(newItem);
 			this.collection.push(newItem);
 		} else if (itemType.value === "Magazine") {
 			let newItem = new Magazine(
@@ -209,6 +220,7 @@ class Library {
 				itemType.value,
 				itemEdition.value
 			);
+			console.log(newItem);
 			this.collection.push(newItem);
 		}
 	}
