@@ -39,14 +39,10 @@ class Library {
 			let nameCell = row.insertCell();
 			let academicRegisterCell = row.insertCell();
 			let birthDateCell = row.insertCell();
-			let isBorrowedCell = row.insertCell();
-			let userBorrowerCell = row.insertCell();
 
 			nameCell.textContent = user.userName;
 			academicRegisterCell.textContent = user.userAcademicRegister;
 			birthDateCell.textContent = user.userBirthDate;
-			isBorrowedCell.textContent = user.isBorrowed;
-			userBorrowerCell.textContent = user.userBorrower;
 		});
 	}
 	// DONE
