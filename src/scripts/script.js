@@ -39,10 +39,14 @@ class Library {
 			let nameCell = row.insertCell();
 			let academicRegisterCell = row.insertCell();
 			let birthDateCell = row.insertCell();
+			let isBorrowedCell = row.insertCell();
+			let userBorrowerCell = row.insertCell();
 
 			nameCell.textContent = user.userName;
 			academicRegisterCell.textContent = user.userAcademicRegister;
 			birthDateCell.textContent = user.userBirthDate;
+			isBorrowedCell.textContent = user.isBorrowed;
+			userBorrowerCell.textContent = user.userBorrower;
 		});
 	}
 	// DONE
@@ -97,22 +101,26 @@ class Library {
 			const data = await response.json();
 
 			this.collection = data.map((item) => {
-				if (item.entidadeBibliografica == "Livro") {
+				if (item.entidadeBibliografica === "Livro") {
 					return new Book(
 						item.codigo,
 						item.titulo,
 						item.autor,
 						item.anoPublicacao,
 						item.entidadeBibliografica,
+						item.emprestado,
+						item.usuarioEmprestimo,
 						item.genero
 					);
-				} else if (item.entidadeBibliografica == "Revista") {
+				} else if (item.entidadeBibliografica === "Revista") {
 					return new Magazine(
 						item.codigo,
 						item.titulo,
 						item.autor,
 						item.anoPublicacao,
 						item.entidadeBibliografica,
+						item.emprestado,
+						item.usuarioEmprestimo,
 						item.edicao
 					);
 				}
