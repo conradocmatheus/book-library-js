@@ -128,7 +128,7 @@ class Library {
 	}
 	// NO WORK NEEDED FOR NOW
 
-	// WORK NEEDED
+	// NO WORK NEEDED FOR NOW
 	listCollection() {
 		const collectionTable = document
 			.getElementById("collectionTable")
@@ -159,7 +159,39 @@ class Library {
 				item.userBorrower === null ? "None" : item.userBorrower;
 		});
 	}
-	// WORK NEEDED
+	// NO WORK NEEDED FOR NOW
+
+	addCollectionItem() {
+		let itemType = document.getElementById("inputItemType");
+		let itemTitle = document.getElementById("inputItemTitle");
+		let itemAuthor = document.getElementById("inputItemAuthor");
+		let itemPubDate = document.getElementById("inputItemPubYear");
+		if (itemPubDate.value < 0 || itemPubDate.value > 2023) {
+			alert("Invalid publication year");
+			return;
+		}
+		let itemGenre = document.getElementById("inputItemGenre");
+		let itemEdition = document.getElementById("inputItemEdition");
+		let itemCode = document.getElementById("inputItemCode");
+		for (let i = 0; i < this.collection.length; i++) {
+			if (this.collection[i].itemCode === itemCode.value) {
+				alert("Item Code already in use");
+				return;
+			}
+		}
+		if (
+			!itemType.value ||
+			!itemTitle.value ||
+			!itemAuthor.value ||
+			!itemPubDate.value ||
+			!itemCode.value ||
+			!itemGenre.value ||
+			!itemEdition.value
+		) {
+			alert("All fields must be filled out");
+			return;
+		}
+	}
 }
 
 // NO WORK NEEDED FOR NOW

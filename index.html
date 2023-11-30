@@ -311,6 +311,150 @@
 					</div>
 				</div>
 			</div>
+			<!-- Button trigger AddCollections Modal -->
+			<button
+				onclick="library.AddCollection()"
+				type="button"
+				class="btn btn-primary"
+				data-bs-toggle="modal"
+				data-bs-target="#AddCollectionModal">
+				Add Item
+			</button>
+			<!-- AddCollection Modal -->
+			<div
+				class="modal fade modal-lg"
+				id="AddCollectionModal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1
+								class="modal-title fs-5"
+								id="exampleModalLabel">
+								ADD ITEM
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form class="row g-3">
+								<div class="col-md-2">
+									<label
+										for="inputItemType"
+										class="form-label"
+										>Type</label
+									>
+									<select
+										id="inputItemType"
+										class="form-select">
+										<option selected>Choose...</option>
+										<option>Book</option>
+										<option>Magazine</option>
+									</select>
+								</div>
+								<div class="col-sm">
+									<label
+										for="inputItemTitle"
+										class="form-label"
+										>Title</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="inputItemTitle" />
+								</div>
+								<div class="col-sm">
+									<label
+										for="inputItemAuthor"
+										class="form-label"
+										>Author</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="inputItemAuthor" />
+								</div>
+								<div class="col-sm-3">
+									<label
+										for="inputItemPubYear"
+										class="form-label"
+										>Year</label
+									>
+									<input
+										type="number"
+										class="form-control"
+										id="inputItemPubYear" />
+								</div>
+								<div class="row g-3">
+									<div class="col">
+										<select
+											id="inputItemGenre"
+											class="form-select">
+											<option selected>Genre...</option>
+											<option>Horror</option>
+											<option>Comedy</option>
+											<option>Sci-Fi</option>
+											<option>Adventure</option>
+											<option>Thriller</option>
+											<option>Biography</option>
+											<option>History</option>
+											<option>Science</option>
+											<option>Music</option>
+											<option>Other</option>
+										</select>
+									</div>
+									<div class="col">
+										<select
+											id="inputItemEdition"
+											class="form-select">
+											<option selected>Edition...</option>
+											<option>January</option>
+											<option>February</option>
+											<option>March</option>
+											<option>April</option>
+											<option>May</option>
+											<option>June</option>
+											<option>July</option>
+											<option>August</option>
+											<option>September</option>
+											<option>October</option>
+											<option>November</option>
+											<option>December</option>
+										</select>
+									</div>
+									<div class="col">
+										<input
+											id="inputItemCode"
+											type="number"
+											class="form-control"
+											placeholder="Item Code Ex(19238)"
+											aria-label="Item Code" />
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+							<button
+								onclick="library.addCollectionItem()"
+								type="button"
+								class="btn btn-primary">
+								Add Item
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
