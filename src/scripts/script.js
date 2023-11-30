@@ -121,7 +121,6 @@ class Library {
 					);
 				}
 			});
-			console.log(this.collection);
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -190,6 +189,27 @@ class Library {
 		) {
 			alert("All fields must be filled out");
 			return;
+		}
+		if (itemType.value === "Book") {
+			let newItem = new Book(
+				itemCode.value,
+				itemTitle.value,
+				itemAuthor.value,
+				itemPubDate.value,
+				itemType.value,
+				itemGenre.value
+			);
+			this.collection.push(newItem);
+		} else if (itemType.value === "Magazine") {
+			let newItem = new Magazine(
+				itemCode.value,
+				itemTitle.value,
+				itemAuthor.value,
+				itemPubDate.value,
+				itemType.value,
+				itemEdition.value
+			);
+			this.collection.push(newItem);
 		}
 	}
 }
