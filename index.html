@@ -524,6 +524,79 @@
 					</div>
 				</div>
 			</div>
+			<!-- Button trigger ReturnItem Modal -->
+			<button
+				type="button"
+				class="btn btn-primary"
+				data-bs-toggle="modal"
+				data-bs-target="#ReturnItemModal">
+				Return Item
+			</button>
+			<!--  ReturnItem Modal -->
+			<div
+				class="modal fade"
+				id="ReturnItemModal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1
+								class="modal-title fs-5"
+								id="exampleModalLabel">
+								RETURN ITEM
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form class="row g-3">
+								<div class="col-md-6">
+									<label
+										for="inputEntityCodeReturn"
+										class="form-label"
+										>Entity Code</label
+									>
+									<input
+										required
+										type="text"
+										class="form-control"
+										id="inputEntityCodeReturn" />
+								</div>
+								<div class="col-md-6">
+									<label
+										for="inputUserRAReturn"
+										class="form-label"
+										>User RA</label
+									>
+									<input
+										type="text"
+										class="form-control"
+										id="inputUserRAReturn" />
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal">
+								Close
+							</button>
+							<button
+								onclick="library.returnItem()"
+								type="button"
+								class="btn btn-primary">
+								Return
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
