@@ -272,6 +272,29 @@ class Library {
 		}
 	}
 	// DONE
+
+	// WORKING ON
+	returnItem() {
+		let returnEntityCodeInput = document.getElementById(
+			"inputEntityCodeReturn"
+		);
+		if (returnEntityCodeInput.value === "") {
+			alert("All fields must be filled out");
+			return;
+		}
+		const findedItem = this.collection.find(
+			(item) => item.itemCode === returnEntityCodeInput.value
+		);
+		if (findedItem) {
+			findedItem.return();
+			returnEntityCodeInput.value = "";
+			this.listCollection();
+		} else {
+			alert("Item not found");
+			return;
+		}
+	}
+	// WORKING ON
 }
 
 // NO WORK NEEDED FOR NOW
@@ -295,6 +318,7 @@ class BibliographicEntity {
 		this.itemType = itemType;
 	}
 
+	// DONE
 	borrow(user) {
 		if (this.isBorrowed) {
 			alert("Item already borrowed");
@@ -305,6 +329,20 @@ class BibliographicEntity {
 			alert("Item borrowed");
 		}
 	}
+	// DONE
+
+	// WORKING ON
+	return() {
+		if (!this.isBorrowed) {
+			alert("Item not borrowed");
+			return;
+		} else {
+			this.isBorrowed = false;
+			this.userBorrower = null;
+			alert("Item returned");
+		}
+	}
+	// WORKING ON
 }
 
 class Book extends BibliographicEntity {
