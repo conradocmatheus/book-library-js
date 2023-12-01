@@ -258,6 +258,8 @@ class Library {
 			);
 			if (findedUser) {
 				findedItem.borrow(findedUser);
+				borrowEntityCodeInput.value = "";
+				borrowUserRA.value = "";
 				this.listCollection();
 			} else {
 				alert("User not found");
