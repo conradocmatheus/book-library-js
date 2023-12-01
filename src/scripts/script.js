@@ -240,6 +240,7 @@ class Library {
 	}
 	// DONE
 
+	// DONE
 	borrowItem() {
 		let borrowEntityCodeInput = document.getElementById(
 			"inputEntityCodeBorrow"
@@ -270,6 +271,7 @@ class Library {
 			return;
 		}
 	}
+	// DONE
 }
 
 // NO WORK NEEDED FOR NOW
