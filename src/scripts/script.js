@@ -87,6 +87,7 @@ class Library {
 			userBirthDateInput.value
 		);
 		this.users.push(newUser);
+		alert("User added to library");
 
 		userFirstNameInput.value = "";
 		userLastNameInput.value = "";
@@ -215,6 +216,7 @@ class Library {
 				itemGenre.value
 			);
 			this.collection.push(newItem);
+			alert("Book added to collection");
 		} else if (itemType.value === "Magazine") {
 			let newItem = new Magazine(
 				itemCode.value,
@@ -225,6 +227,7 @@ class Library {
 				itemEdition.value
 			);
 			this.collection.push(newItem);
+			alert("Magazine added to collection");
 		}
 		itemType.value = "";
 		itemTitle.value = "";
@@ -236,6 +239,35 @@ class Library {
 		this.listCollection();
 	}
 	// DONE
+
+	borrowItem() {
+		let borrowEntityCodeInput = document.getElementById(
+			"inputEntityCodeBorrow"
+		);
+		let borrowUserRA = document.getElementById("inputUserRABorrow");
+		if (borrowEntityCodeInput.value === "" || borrowUserRA.value === "") {
+			alert("All fields must be filled out");
+			return;
+		}
+		const findedItem = this.collection.find(
+			(item) => item.itemCode === borrowEntityCodeInput.value
+		);
+		if (findedItem) {
+			const findedUser = this.users.find(
+				(user) => user.userAcademicRegister === borrowUserRA.value
+			);
+			if (findedUser) {
+				findedItem.borrow(findedUser);
+				this.listCollection();
+			} else {
+				alert("User not found");
+				return;
+			}
+		} else {
+			alert("Item not found");
+			return;
+		}
+	}
 }
 
 // NO WORK NEEDED FOR NOW
@@ -259,7 +291,16 @@ class BibliographicEntity {
 		this.itemType = itemType;
 	}
 
-	borrow() {}
+	borrow(user) {
+		if (this.isBorrowed) {
+			alert("Item already borrowed");
+			return;
+		} else {
+			this.isBorrowed = true;
+			this.userBorrower = user.userAcademicRegister;
+			alert("Item borrowed");
+		}
+	}
 }
 
 class Book extends BibliographicEntity {
