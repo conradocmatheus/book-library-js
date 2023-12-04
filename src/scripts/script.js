@@ -16,7 +16,6 @@ class Library {
 		this.populateCollection();
 	}
 
-	// DONE
 	async populateUsers() {
 		try {
 			const response = await fetch(
@@ -32,9 +31,7 @@ class Library {
 			console.error("Error:", error);
 		}
 	}
-	// DONE
 
-	// DONE
 	listUsers() {
 		const usersTable = document
 			.getElementById("usersTable")
@@ -53,9 +50,7 @@ class Library {
 			birthDateCell.textContent = user.userBirthDate;
 		});
 	}
-	// DONE
 
-	// DONE
 	addUser() {
 		let userFirstNameInput = document.getElementById("inputFirstName");
 		let userLastNameInput = document.getElementById("inputLastName");
@@ -95,9 +90,7 @@ class Library {
 		userBirthDateInput.value = "";
 		this.listUsers();
 	}
-	// DONE
 
-	// DONE
 	async populateCollection() {
 		try {
 			const response = await fetch(
@@ -140,9 +133,7 @@ class Library {
 			console.error("Error:", error);
 		}
 	}
-	// DONE
 
-	// DONE
 	listCollection() {
 		const collectionTable = document
 			.getElementById("collectionTable")
@@ -173,9 +164,7 @@ class Library {
 				item.userBorrower === null ? "None" : item.userBorrower;
 		});
 	}
-	// DONE
 
-	// DONE
 	addCollectionItem() {
 		let itemType = document.getElementById("inputItemType");
 		let itemTitle = document.getElementById("inputItemTitle");
@@ -238,9 +227,7 @@ class Library {
 		itemEdition.value = "";
 		this.listCollection();
 	}
-	// DONE
 
-	// DONE
 	borrowItem() {
 		let borrowEntityCodeInput = document.getElementById(
 			"inputEntityCodeBorrow"
@@ -271,9 +258,7 @@ class Library {
 			return;
 		}
 	}
-	// DONE
 
-	// WORKING ON
 	returnItem() {
 		let returnEntityCodeInput = document.getElementById(
 			"inputEntityCodeReturn"
@@ -294,10 +279,8 @@ class Library {
 			return;
 		}
 	}
-	// WORKING ON
 }
 
-// NO WORK NEEDED FOR NOW
 class User {
 	constructor(userName, userAcademicRegister, userBirthDate) {
 		this.userName = userName;
@@ -305,7 +288,6 @@ class User {
 		this.userBirthDate = userBirthDate;
 	}
 }
-// NO WORK NEEDED FOR NOW
 
 class BibliographicEntity {
 	constructor(itemCode, itemTitle, itemAuthor, itemPubDate, itemType) {
@@ -318,7 +300,6 @@ class BibliographicEntity {
 		this.itemType = itemType;
 	}
 
-	// DONE
 	borrow(user) {
 		if (this.isBorrowed) {
 			alert("Item already borrowed");
@@ -329,9 +310,7 @@ class BibliographicEntity {
 			alert("Item borrowed");
 		}
 	}
-	// DONE
 
-	// WORKING ON
 	return() {
 		if (!this.isBorrowed) {
 			alert("Item not borrowed");
@@ -342,7 +321,6 @@ class BibliographicEntity {
 			alert("Item returned");
 		}
 	}
-	// WORKING ON
 }
 
 class Book extends BibliographicEntity {
