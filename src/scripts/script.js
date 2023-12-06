@@ -1,13 +1,3 @@
-const genres = [
-	(HORROR = "Horror"),
-	(COMEDY = "Comedy"),
-	(THRILLER = "Thriller"),
-	(DRAMA = "Drama"),
-	(SUSPENSE = "Suspense"),
-	(SCI_FI = "Sci-Fi"),
-	(HISTORY = "History"),
-];
-
 class Library {
 	constructor() {
 		this.users = [];
@@ -161,7 +151,9 @@ class Library {
 				item.itemType === "Book" ? item.itemGenre : item.itemEdition;
 			borrowedCell.textContent = item.isBorrowed;
 			borrowerCell.textContent =
-				item.userBorrower === null ? "None" : item.userBorrower;
+				item.userBorrower === null
+					? "None"
+					: item.userBorrower.userAcademicRegister;
 		});
 	}
 
@@ -306,7 +298,7 @@ class BibliographicEntity {
 			return;
 		} else {
 			this.isBorrowed = true;
-			this.userBorrower = user.userAcademicRegister;
+			this.userBorrower = user;
 			alert("Item borrowed");
 		}
 	}
